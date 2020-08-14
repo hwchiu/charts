@@ -384,7 +384,7 @@ aggregator:
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   ##
   podAnnotations:
-    fluentbit.io/exclude: true
+    fluentbit.io/exclude: "true"
 
   ## Extra labels to add to Pod
   podLabels: {}
