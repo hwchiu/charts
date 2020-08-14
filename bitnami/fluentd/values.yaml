@@ -66,7 +66,7 @@ forwarder:
   ## Name of the configMap that contains the configuration files for fluentd
   ## If not specified, one will be created by default
   ##
-  configMap: elasticsearch-output
+  ## configMap: elasticsearch-output
 
 
   ## String with extra arguments for the Fluentd command line
@@ -79,12 +79,7 @@ forwarder:
   ##   - name: MY_ENV_VAR
   ##     value: my_value
   ##
-  extraEnv:
-       - name: ELASTICSEARCH_HOST
-         value: elasticsearch-master.default
-       - name: ELASTICSEARCH_PORT
-         value: 9200
-
+  extraEnv: []
   ## Forwarder containers' ports
   ##
   containerPorts:
@@ -254,7 +249,7 @@ aggregator:
   ## Name of the configMap that contains the configuration files for fluentd
   ## If not specified, one will be created by default
   ##
-  # configMap:
+  configMap: elasticsearch-output
 
   ## Port the Aggregator container will listen for logs. Leave it blank to ignore.
   ## You can specify other ports in the aggregator.containerPorts parameter
@@ -271,7 +266,11 @@ aggregator:
   ##   - name: MY_ENV_VAR
   ##     value: my_value
   ##
-  extraEnv: []
+  extraEnv:
+       - name: ELASTICSEARCH_HOST
+         value: elasticsearch-master.default
+       - name: ELASTICSEARCH_PORT
+         value: 9200
 
   ## Aggregator containers' ports
   ##

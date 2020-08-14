@@ -5,27 +5,6 @@ metadata:
 data:
   fluentd.conf: |
     # Prometheus Exporter Plugin
-    # input plugin that exports metrics
-    <source>
-      @type prometheus
-      port 24231
-    </source>
-
-    # input plugin that collects metrics from MonitorAgent
-    <source>
-      @type prometheus_monitor
-      <labels>
-        host ${hostname}
-      </labels>
-    </source>
-
-    # input plugin that collects metrics for output plugin
-    <source>
-      @type prometheus_output_monitor
-      <labels>
-        host ${hostname}
-      </labels>
-    </source>
 
     # Ignore fluentd own events
     <match fluent.**>
